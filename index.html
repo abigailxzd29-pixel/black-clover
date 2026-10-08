@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Carta para Demon</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <video
+        id="videoInicio"
+        class="bg-video"
+        autoplay
+        muted
+        loop
+        playsinline
+    >
+        <source src="videos/fondo-inicio.mp4" type="video/mp4">
+    </video>
+
+    <video
+        id="videoCarta"
+        class="bg-video oculto"
+        autoplay
+        muted
+        loop
+        playsinline
+    >
+        <source src="videos/fondo-carta.mp4" type="video/mp4">
+    </video>
+
+    <div class="capa-fondo"></div>
+
+    <div class="decoraciones" aria-hidden="true">
+
+        <span class="simbolo simbolo-1">✦</span>
+        <span class="simbolo simbolo-2">✧</span>
+        <span class="simbolo simbolo-3">𖤐</span>
+        <span class="simbolo simbolo-4">⟡</span>
+        <span class="simbolo simbolo-5">✦</span>
+        <span class="simbolo simbolo-6">୨୧</span>
+        <span class="simbolo simbolo-7">✧</span>
+        <span class="simbolo simbolo-8">𓆩</span>
+        <span class="simbolo simbolo-9">𓆪</span>
+
+    </div>
+
+    <audio id="musicaCarta" loop>
+        <source src="audio/musica.mp3" type="audio/mpeg">
+    </audio>
+
+
+    <main id="inicio" class="escena activa">
+
+        <div class="contenedor-inicio">
+
+            <div class="ornamento-superior">
+                ✦ ───────── 𖤐 ───────── ✦
+            </div>
+
+            <p class="pequeno-texto">
+                HAY ALGO AQUÍ PARA TI
+            </p>
+
+            <h1>
+                DEMON
+            </h1>
+
+            <p class="subtitulo">
+                ANTES DE SEGUIR, ABRE ESTO
+            </p>
+
+            <button
+                id="regaloBtn"
+                class="regalo-btn"
+                type="button"
+                aria-label="Abrir el regalo"
+            >
+
+                <!-- CORRECCIÓN:
+                     PNG → JPG -->
+
+                <img
+                    src="images/regalo.jpg"
+                    alt="Regalo"
+                >
+
+            </button>
+
+
+            <p
+                id="textoRegalo"
+                class="texto-regalo"
+            >
+                PRESIONA EL REGALO
+            </p>
+
+
+            <div class="ornamento-inferior">
+                ✧ ───────── ୨୧ ───────── ✧
+            </div>
+
+        </div>
+
+    </main>
+
+    <section
+        id="pregunta"
+        class="escena oculto"
+    >
+
+        <div class="panel-pregunta">
+
+            <div class="ornamento-superior">
+                ✦ ───── 𖤐 ───── ✦
+            </div>
+
+
+            <p class="etiqueta">
+                ANTES DE CONTINUAR...
+            </p>
+
+
+            <h2>
+                ¿QUIERES ABRIR TU REGALO?
+            </h2>
+
+            <p
+                id="mensajeNo"
+                class="mensaje-no"
+                aria-live="polite"
+            ></p>
+
+
+            <div class="botones-pregunta">
+
+                <button
+                    id="btnSi"
+                    class="boton boton-si"
+                    type="button"
+                >
+                    SÍ
+                </button>
+
+
+                <button
+                    id="btnNo"
+                    class="boton boton-no"
+                    type="button"
+                >
+                    NO
+                </button>
+
+            </div>
+
+
+            <div class="ornamento-inferior">
+                ✧ ───── ୨୧ ───── ✧
+            </div>
+
+        </div>
+
+        <div
+            id="frasesNo"
+            class="frases-no"
+            hidden
+        >
+
+            <p data-frase="1">
+                ¿Seguro que vas a decir que no?
+            </p>
+
+            <p data-frase="2">
+                Piénsalo otra vez...
+            </p>
+
+            <p data-frase="3">
+                No te cuesta nada darle una oportunidad.
+            </p>
+
+            <p data-frase="4">
+                Demon... esa opción no era la correcta.
+            </p>
+
+            <p data-frase="5">
+                Última oportunidad. Esta vez di que sí.
+            </p>
+
+            <p data-frase-final>
+                Sabía que terminarías abriendo el regalo.
+            </p>
+
+        </div>
+
+    </section>
+
+    <canvas
+        id="canvasCelebracion"
+        aria-hidden="true"
+    ></canvas>
+
+    <section
+        id="celebracion"
+        class="escena oculto"
+    >
+
+        <div class="celebracion-contenido">
+
+            <div class="ornamento-superior">
+                ✦ 𖤐 ✦
+            </div>
+
+
+            <p class="pequeno-texto">
+                ENTONCES... COMENCEMOS
+            </p>
+
+
+            <h2>
+                FELIZ CUMPLEAÑOS, DEMON
+            </h2>
+
+
+            <p>
+                ESTE PEQUEÑO REGALO DIGITAL ES PARA TI.
+            </p>
+
+
+            <div class="ornamento-inferior">
+                ✧ ୨୧ ✧
+            </div>
+
+
+            <button
+                id="btnCarta"
+                class="boton-continuar"
+                type="button"
+            >
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <section
+        id="carta"
+        class="escena oculto"
+    >
+
+        <div class="carta-contenedor">
+
+
+            <div class="carta-decoracion superior">
+                ✦ ─────── 𖤐 ─────── ✦
+            </div>
+
+            <div class="texto-carta">
+
+                <p class="firma-inicial">
+                    Para Demon
+                </p>
+
+
+                <div class="linea-decorativa">
+                    ✧ ───── ୨୧ ───── ✧
+                </div>
+
+
+                <p>
+                    Hoy es un día especial, así que obviamente no podía dejar pasar la oportunidad de hacerte algo, aunque sea desde el otro lado de una pantalla.
+                </p>
+
+
+                <p>
+                    Es un poco curioso pensar que nos conocimos por Discord y que, aunque nunca nos hayamos visto en persona, hemos terminado compartiendo momentos, conversaciones, risas y un montón de cosas que probablemente no habríamos imaginado al principio.
+                </p>
+
+
+                <p>
+                    No sé si alguna vez te has puesto a pensar en eso, pero creo que es bastante genial que alguien que estaba completamente fuera de tu vida pueda terminar formando parte de ella simplemente por coincidir en un servidor, una conversación o un juego.
+                </p>
+
+
+                <p>
+                    Así que hoy quería aprovechar para decirte: feliz cumpleaños, Demon.
+                </p>
+
+
+                <p>
+                    Espero que este nuevo año te traiga muchas cosas buenas, buenos momentos y que puedas conseguir muchas de las cosas que te propongas.
+                </p>
+
+
+                <p>
+                    Y como sé que te gusta Black Clover, no podía dejar pasar la oportunidad de incluir aunque fuera una pequeña referencia.
+                </p>
+
+
+                <p>
+                    Espero que este nuevo año tengas la oportunidad de seguir haciendo las cosas que te gustan y de alcanzar aquello que te propongas, incluso cuando las cosas se pongan difíciles.
+                </p>
+
+
+                <p>
+                    No hace falta ponerle magia a todo para que algo sea especial. A veces basta con encontrar personas con las que puedas pasar un buen rato, reírte de cualquier cosa y compartir momentos aunque estén detrás de una pantalla.
+                </p>
+
+
+                <p>
+                    Y supongo que esa es una de las cosas que más me gusta de haber coincidido contigo por Discord: que, sin conocernos en persona, terminamos construyendo una amistad que valoro bastante.
+                </p>
+
+
+                <p>
+                    Así que espero que pases un muy buen cumpleaños, Demon, y que disfrutes mucho este día.
+                </p>
+
+
+                <p>
+                    Gracias por todos los momentos, las conversaciones y las tonterías compartidas hasta ahora.
+                </p>
+
+
+                <div class="cierre-carta">
+
+                    <p>
+                        ✦ 𓆩 Feliz cumpleaños, Demon. 𓆪 ✦
+                    </p>
+
+                    <p>
+                        Espero que este pequeño regalo virtual consiga sacarte aunque sea una sonrisa.
+                    </p>
+
+                    <p class="firma-final">
+                        — Abi
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="carta-decoracion inferior">
+                ✧ ─────── ୨୧ ─────── ✧
+            </div>
+
+            <button
+                id="btnVela"
+                class="boton-continuar"
+                type="button"
+            >
+            </button>
+
+        </div>
+
+    </section>
+
+    <section
+        id="vela"
+        class="escena oculto"
+    >
+
+        <div class="vela-contenedor">
+
+            <div class="ornamento-superior">
+                ✦ ───── 𖤐 ───── ✦
+            </div>
+
+
+            <h2>
+                UN ÚLTIMO DESEO
+            </h2>
+
+
+            <p>
+                PIDE UN DESEO Y APAGA LA VELA.
+            </p>
+
+
+            <div
+                class="vela"
+                aria-label="Vela de cumpleaños"
+            >
+
+                <div
+                    id="llama"
+                    class="llama"
+                >
+
+                    <div class="llama-centro"></div>
+
+                </div>
+
+
+                <div class="cera"></div>
+
+            </div>
+
+
+            <p
+                id="estadoVela"
+                class="estado-vela"
+                aria-live="polite"
+            >
+                PUEDES SOPLAR O APAGAR LA VELA
+            </p>
+
+            <div class="controles-vela">
+
+                <button
+                    id="btnMicrofono"
+                    class="boton"
+                    type="button"
+                >
+                    SOPLAR CON MICRÓFONO
+                </button>
+
+
+                <button
+                    id="btnApagar"
+                    class="boton"
+                    type="button"
+                >
+                    APAGAR VELA
+                </button>
+
+            </div>
+
+            <button
+                id="btnSorpresa"
+                class="boton-continuar oculto"
+                type="button"
+            >
+            </button>
+
+
+            <div class="ornamento-inferior">
+                ✧ ───── ୨୧ ───── ✧
+            </div>
+
+        </div>
+
+    </section>
+
+    <section
+        id="sorpresa"
+        class="escena oculto"
+    >
+
+        <div class="sorpresa-contenedor">
+
+            <div class="ornamento-superior">
+                ✦ 𖤐 ✦
+            </div>
+
+
+            <p class="etiqueta">
+                HAS DESCUBIERTO ALGO
+            </p>
+
+
+            <h2>
+                ESTA PARTE ERA SOLO PARA TI
+            </h2>
+
+            <img
+                class="imagen-sorpresa"
+                src="images/sorpresa-final.png"
+                alt="Sorpresa para Demon"
+            >
+
+
+            <div class="mensaje-sorpresa">
+
+                <div class="secreto-ornamento">
+                    ✦ 𓆩 Un pequeño secreto 𓆪 ✦
+                </div>
+
+
+                <p>
+                    Llegaste hasta aquí, así que esta parte es oficialmente tuya.
+                </p>
+
+
+                <p>
+                    Espero que este pequeño detalle te haya gustado.
+                </p>
+
+
+                <p>
+                    Y ahora sí... disfruta tu día, Demon.
+                </p>
+
+
+                <p class="firma-final">
+                    — Abi
+                </p>
+
+            </div>
+
+            <button
+                id="btnGaleria"
+                class="boton-continuar"
+                type="button"
+            >
+            </button>
+
+
+            <div class="ornamento-inferior">
+                ✧ ───── ୨୧ ───── ✧
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section
+        id="galeria"
+        class="escena oculto"
+    >
+
+        <div class="galeria-contenedor">
+
+            <div class="ornamento-superior">
+                ✦ ─────── 𖤐 ─────── ✦
+            </div>
+
+
+            <h2>
+                NUESTROS RECUERDOS
+            </h2>
+
+
+            <p>
+                Guarda aquí las fotos y momentos que quieras conservar.
+            </p>
+
+
+            <label
+                for="imagenesMemoria"
+                class="subir-fotos"
+            >
+                AÑADIR FOTOS
+            </label>
+
+
+            <input
+                type="file"
+                id="imagenesMemoria"
+                accept="image/*"
+                multiple
+            >
+
+            <div
+                id="galeriaFotos"
+                class="galeria-fotos"
+            ></div>
+
+
+            <p
+                id="mensajeGaleria"
+                class="mensaje-galeria"
+                aria-live="polite"
+            ></p>
+
+
+            <div class="ornamento-inferior">
+                ✧ ─────── ୨୧ ─────── ✧
+            </div>
+
+        </div>
+
+    </section>
+
+    <button
+        id="controlMusica"
+        class="control-musica"
+        type="button"
+        aria-label="Controlar música"
+    >
+        ♪
+    </button>
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>
+```
